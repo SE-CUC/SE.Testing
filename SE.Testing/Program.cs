@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using Sandbox.Game.EntityComponents;
+﻿using Sandbox.Game.EntityComponents;
 using Sandbox.ModAPI.Ingame;
 using Sandbox.ModAPI.Interfaces;
 using SpaceEngineers.Game.ModAPI.Ingame;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Text;
 using VRage;
 using VRage.Collections;
 using VRage.Game;
@@ -20,53 +19,64 @@ using VRageMath;
 
 namespace IngameScript
 {
-    partial class Program : MyGridProgram
+    public partial class Program : MyGridProgram
     {
-        // This file contains your actual script.
-        //
-        // You can either keep all your code here, or you can create separate
-        // code files to make your program easier to navigate while coding.
-        //
-        // Go to:
-        // https://github.com/malware-dev/MDK-SE/wiki/Quick-Introduction-to-Space-Engineers-Ingame-Scripts
-        //
-        // to learn more about ingame scripts.
+        private SystemMonitorService _systemMonitor;
+        private IConfigurationManager _manager;
+        private readonly ITestRunner _testRunner;
+        private IEnumerator<bool> _testEnumerator;
+        private ILogger _logger;
 
         public Program()
         {
-            // The constructor, called only once every session and
-            // always before any other method is called. Use it to
-            // initialize your script. 
-            //     
-            // The constructor is optional and can be removed if not
-            // needed.
-            // 
-            // It's recommended to set Runtime.UpdateFrequency 
-            // here, which will allow your script to run itself without a 
-            // timer block.
-        }
+            _systemMonitor = new SystemMonitorService(this);
 
-        public void Save()
-        {
-            // Called when the program needs to save its state. Use
-            // this method to save your state to the Storage field
-            // or some other means. 
-            // 
-            // This method is optional and can be removed if not
-            // needed.
+            IConfigStorage storage = new ProgrammableBlockStorage(Me);
+            _manager = new ConfigurationManager(storage);
+
+            _manager.Register(new LoggerConfig());
+
+            _manager.Load();
+
+            _logger = new Logger(_manager.GetOptions<LoggerConfig>().Level);
+
+            _logger.AddTarget(new BufferedSurfaceTarget(
+                Me.GetSurface(0),
+                new TimeBasedFlushStrategy(_manager.GetOptions<LoggerConfig>().FlushIntervalSeconds)));
+            _logger.AddTarget(new EchoTarget(Echo));
+
+            _logger.ClearAllTargets();
+
+            _testRunner = new TestRunner(new LogReporter(_logger));
+            _testRunner.AddProvider(new MyFinalTestProvider());
+
+            Runtime.UpdateFrequency = UpdateFrequency.Update10;
+            Echo("Test framework ready. Use 'run_tests'.");
         }
 
         public void Main(string argument, UpdateType updateSource)
         {
-            // The main entry point of the script, invoked every time
-            // one of the programmable block's Run actions are invoked,
-            // or the script updates itself. The updateSource argument
-            // describes where the update came from. Be aware that the
-            // updateSource is a  bitfield  and might contain more than 
-            // one update type.
-            // 
-            // The method itself is required, but the arguments above
-            // can be removed if not needed.
+            if ((updateSource & (UpdateType.Terminal | UpdateType.Trigger)) != 0 && argument.ToLower() == "run_tests")
+            {
+                Echo("Running tests...");
+                _testEnumerator = _testRunner.RunAll();
+            }
+
+            if ((updateSource & (UpdateType.Terminal | UpdateType.Trigger | UpdateType.Mod)) != 0 && argument.ToLower() == "save_default")
+            {
+                Echo("Saving default configuration...");
+                _manager.SaveDefaults();
+            }
+
+            if (_testEnumerator != null && !_testEnumerator.MoveNext())
+            {
+                Echo("Tests completed.");   
+                _testEnumerator.Dispose();
+                _testEnumerator = null;
+            }
+
+            _logger.Flush();
+            _systemMonitor.PrintStatsToEcho();
         }
     }
 }

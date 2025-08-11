@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fedcba09-8765-4321-abcd-ef0123456789</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>IngameScript</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Interfaces\ITestProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Interfaces\ITestResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Interfaces\ITestRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Interfaces\ITestReporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Exceptions\AssertionException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Models\Test.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Models\TestResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Assert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\TestRunner.cs" />
+    <Compile Include="..\SE.Testing.Mixin\Services\LogReporter.cs" />
+  </ItemGroup>
+</Project>

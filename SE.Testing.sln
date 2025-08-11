@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36221.1 d17.14
+VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SE.Testing", "SE.Testing\SE.Testing.csproj", "{72A9AF75-47B2-4129-BE4F-77864B254767}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.Testing.Mixin", "SE.Testing.Mixin\SE.Testing.Mixin.shproj", "{8A3CDCC5-4B55-4D87-A415-698A0E1FF06F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.Logging.Mixin", "..\SE.Logging\SE.Logging.Mixin\SE.Logging.Mixin.shproj", "{D24B1066-E6CA-4FAC-B952-71C234AD73B0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.Configuration.Mixin", "..\SE.Configuration\SE.Configuration.Mixin\SE.Configuration.Mixin.shproj", "{9DDC65AF-84DE-4756-B37E-01946E4E302B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.LiveTicksUsage.Mixin", "..\SE.LiveTicksUsage\SE.LiveTicksUsage.Mixin\SE.LiveTicksUsage.Mixin.shproj", "{C8722C00-499F-46C1-9205-6851F169B433}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,5 +29,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FF3BB57-A140-4261-A112-40028C53298A}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\SE.Configuration\SE.Configuration.Mixin\SE.Configuration.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
+		..\SE.LiveTicksUsage\SE.LiveTicksUsage.Mixin\SE.LiveTicksUsage.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
+		..\SE.Logging\SE.Logging.Mixin\SE.Logging.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
+		SE.Testing.Mixin\SE.Testing.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
+		SE.Testing.Mixin\SE.Testing.Mixin.projitems*{8a3cdcc5-4b55-4d87-a415-698a0e1ff06f}*SharedItemsImports = 13
+		..\SE.Configuration\SE.Configuration.Mixin\SE.Configuration.Mixin.projitems*{9ddc65af-84de-4756-b37e-01946e4e302b}*SharedItemsImports = 13
+		..\SE.LiveTicksUsage\SE.LiveTicksUsage.Mixin\SE.LiveTicksUsage.Mixin.projitems*{c8722c00-499f-46c1-9205-6851f169b433}*SharedItemsImports = 13
+		..\SE.Logging\SE.Logging.Mixin\SE.Logging.Mixin.projitems*{d24b1066-e6ca-4fac-b952-71c234ad73b0}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
