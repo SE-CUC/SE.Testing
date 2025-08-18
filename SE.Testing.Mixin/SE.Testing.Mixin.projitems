@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\Exceptions\AssertionException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Models\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Models\TestResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TestingExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\Assert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TestRunner.cs" />
     <Compile Include="..\SE.Testing.Mixin\Services\LogReporter.cs" />
