@@ -27,6 +27,14 @@ namespace IngameScript
                 _providers.Add(provider);
         }
 
+        public void AddProvider(params ITestProvider[] providers)
+        {
+            foreach (var provider in providers)
+            {
+                AddProvider(provider);
+            }
+        }
+
         public IEnumerator<bool> RunAll()
         {
             var allResults = new List<ITestResult>();
