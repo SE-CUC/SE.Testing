@@ -19,6 +19,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.Command.Mixin", "..\SE.C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.TaskScheduler.Mixin", "..\SE.TaskScheduler\SE.TaskScheduler.Mixin\SE.TaskScheduler.Mixin.shproj", "{C9F803B2-632B-462B-BC89-4FD851CEDB39}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SE.SEApplication.TestingExtension.Mixin", "SE.SEApplication.TestingExtension.Mixin\SE.SEApplication.TestingExtension.Mixin.shproj", "{EC18E187-EDFE-4AC2-AC57-A223A6C66D11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -44,12 +46,14 @@ Global
 		..\SE.Logging\SE.Logging.Mixin\SE.Logging.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
 		..\SE.SEApplication\SE.SEApplication.Mixin\SE.SEApplication.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
 		..\SE.TaskScheduler\SE.TaskScheduler.Mixin\SE.TaskScheduler.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
+		SE.SEApplication.TestingExtension.Mixin\SE.SEApplication.TestingExtension.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
 		SE.Testing.Mixin\SE.Testing.Mixin.projitems*{72a9af75-47b2-4129-be4f-77864b254767}*SharedItemsImports = 5
 		SE.Testing.Mixin\SE.Testing.Mixin.projitems*{8a3cdcc5-4b55-4d87-a415-698a0e1ff06f}*SharedItemsImports = 13
 		..\SE.Configuration\SE.Configuration.Mixin\SE.Configuration.Mixin.projitems*{9ddc65af-84de-4756-b37e-01946e4e302b}*SharedItemsImports = 13
 		..\SE.LiveTicksUsage\SE.LiveTicksUsage.Mixin\SE.LiveTicksUsage.Mixin.projitems*{c8722c00-499f-46c1-9205-6851f169b433}*SharedItemsImports = 13
 		..\SE.TaskScheduler\SE.TaskScheduler.Mixin\SE.TaskScheduler.Mixin.projitems*{c9f803b2-632b-462b-bc89-4fd851cedb39}*SharedItemsImports = 13
 		..\SE.Logging\SE.Logging.Mixin\SE.Logging.Mixin.projitems*{d24b1066-e6ca-4fac-b952-71c234ad73b0}*SharedItemsImports = 13
+		SE.SEApplication.TestingExtension.Mixin\SE.SEApplication.TestingExtension.Mixin.projitems*{ec18e187-edfe-4ac2-ac57-a223a6c66d11}*SharedItemsImports = 13
 		..\SE.Command\SE.Command.Mixin\SE.Command.Mixin.projitems*{ff966c61-d39a-4c2e-bf06-3e7c263e1472}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

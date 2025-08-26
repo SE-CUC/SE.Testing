@@ -30,4 +30,5 @@
   <Import Project="..\..\SE.SEApplication\SE.SEApplication.Mixin\SE.SEApplication.Mixin.projitems" Label="Shared" />
   <Import Project="..\..\SE.Command\SE.Command.Mixin\SE.Command.Mixin.projitems" Label="Shared" />
   <Import Project="..\..\SE.TaskScheduler\SE.TaskScheduler.Mixin\SE.TaskScheduler.Mixin.projitems" Label="Shared" />
+  <Import Project="..\SE.SEApplication.TestingExtension.Mixin\SE.SEApplication.TestingExtension.Mixin.projitems" Label="Shared" />
 </Project>
